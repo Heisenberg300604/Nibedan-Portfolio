@@ -1,9 +1,12 @@
+import About from "@/components/home/about";
+import Hero from "@/components/home/hero";
 
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-6xl font-bold">Nibedan's Portfolio</h1>
-    </div>
+    <>
+      <Hero />
+      <About />
+    </>
   );
 }
