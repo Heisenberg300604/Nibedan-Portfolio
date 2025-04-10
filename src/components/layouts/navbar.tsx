@@ -11,7 +11,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Coffee } from "lucide-react";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -38,10 +38,10 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
+        "fixed top-0 w-full z-50 transition-all duration-300 border-b",
         scrolled 
-          ? "bg-background/80 backdrop-blur-md py-2 shadow-md" 
-          : "bg-transparent py-4"
+          ? "bg-background/90 backdrop-blur-md py-2 shadow-lg border-border/10" 
+          : "bg-transparent py-4 border-transparent"
       )}
     >
       <div className="container flex justify-between items-center">
@@ -52,22 +52,37 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-4">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               className={cn(
-                "text-sm transition-colors hover:text-primary",
+                "text-sm transition-colors hover:text-primary px-3 py-2 rounded-md",
                 pathname === item.href 
-                  ? "text-primary font-medium" 
-                  : "text-muted-foreground"
+                  ? "text-primary font-medium bg-primary/10" 
+                  : "text-muted-foreground hover:bg-accent/50"
               )}
             >
               {item.name}
             </Link>
           ))}
-          <Button asChild size="sm" className="rounded-full">
+          <Button 
+            asChild 
+            size="sm" 
+            className="rounded-full bg-amber-600 hover:bg-amber-700 text-white"
+          >
+            <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer">
+              <Coffee className="h-4 w-4 mr-2" />
+              Buy Me Coffee
+            </a>
+          </Button>
+          <Button 
+            asChild 
+            size="sm" 
+            variant="outline" 
+            className="rounded-full border-primary text-primary hover:bg-primary/10"
+          >
             <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
               Resume
             </a>
@@ -85,23 +100,36 @@ export default function Navbar() {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
-              <nav className="flex flex-col space-y-6 mt-12">
+            <SheetContent side="right" className="bg-background border-l-border/20">
+              <nav className="flex flex-col space-y-4 mt-12">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
                     className={cn(
-                      "text-lg transition-colors hover:text-primary",
+                      "text-lg transition-colors hover:text-primary px-4 py-3 rounded-md",
                       pathname === item.href 
-                        ? "text-primary font-medium" 
-                        : "text-muted-foreground"
+                        ? "text-primary font-medium bg-primary/10" 
+                        : "text-muted-foreground hover:bg-accent/50"
                     )}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <Button asChild className="w-full mt-4">
+                <Button 
+                  asChild 
+                  className="w-full mt-2 bg-amber-600 hover:bg-amber-700 text-white"
+                >
+                  <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer">
+                    <Coffee className="h-4 w-4 mr-2" />
+                    Buy Me Coffee
+                  </a>
+                </Button>
+                <Button 
+                  asChild 
+                  variant="outline" 
+                  className="w-full mt-2 border-primary text-primary hover:bg-primary/10"
+                >
                   <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                     Download Resume
                   </a>
