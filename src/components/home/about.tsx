@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import SectionHeading from '../Common/SectionHeading';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
+import nibedanPic from '@/public/nibedan_pic.jpg';
 
 const About = () => {
   const fadeInVariants = {
@@ -41,12 +43,16 @@ const About = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="aspect-square max-w-md mx-auto lg:mx-0 relative overflow-hidden rounded-2xl animated-border">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent mix-blend-overlay"></div>
-              <div className="h-full w-full bg-muted rounded-2xl flex items-center justify-center">
-                <span className="text-4xl font-bold text-gradient">NP</span>
-                {/* <img src="/nibedan.png" alt="Profile" width={200} height={200} /> */}
-              </div>
-            </div>
+  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent mix-blend-overlay"></div>
+  <div className="h-full w-full bg-muted rounded-2xl flex items-center justify-center">
+    <Image
+      src={nibedanPic}
+      alt="Nibedan Picture"
+      className="object-cover h-full w-full rounded-2xl"
+      priority
+    />
+  </div>
+</div>
             
             <div className="absolute -bottom-8 -right-8 p-6 glass-card">
               <div className="flex gap-6">
