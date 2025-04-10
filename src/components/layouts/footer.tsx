@@ -1,83 +1,99 @@
-import Link from "next/link";
-import { Github, Linkedin, Mail } from "lucide-react";
+import Link from 'next/link';
+import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="border-t py-8 mt-24">
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-8 md:grid-cols-2">
-          <div>
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
-                Nibedan Pati
-              </span>
-            </Link>
-            <p className="mt-4 text-muted-foreground max-w-md">
-              Full Stack Developer skilled in React, Next.js, TypeScript, and more.
-              4X Hackathon Winner. Always expanding my skills and seeking new challenges.
+    <footer className="w-full bg-secondary/50 mt-20 pt-12 pb-8">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold text-primary">Nibedan Pati</h3>
+            <p className="text-sm text-muted-foreground">
+              Full Stack Web Developer, BTech (IT) undergraduate passionate about creating high-quality web applications.
             </p>
+            <div className="flex space-x-4 pt-2">
+              <a 
+                href="https://github.com/Heisenberg300604" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-foreground/70 hover:text-primary transition-colors"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/nibedan-pati-2139b3277" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-foreground/70 hover:text-primary transition-colors"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a 
+                href="mailto:nibedanpati@gmail.com" 
+                className="text-foreground/70 hover:text-primary transition-colors"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://x.com/NibedanPati" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-foreground/70 hover:text-primary transition-colors"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+            </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Links</h3>
-              <nav className="flex flex-col space-y-2">
-                {[
-                  { name: "Home", href: "/" },
-                  { name: "Projects", href: "/projects" },
-                  { name: "Experience", href: "/experience" },
-                  { name: "Contact", href: "/contact" },
-                ].map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="text-muted-foreground hover:text-primary"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Connect</h3>
-              <div className="flex space-x-4">
-                <a
-                  href="https://github.com/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary"
-                >
-                  <Github className="w-6 h-6" />
-                  <span className="sr-only">GitHub</span>
-                </a>
-                <a
-                  href="https://linkedin.com/in/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary"
-                >
-                  <Linkedin className="w-6 h-6" />
-                  <span className="sr-only">LinkedIn</span>
-                </a>
-                <a
-                  href="mailto:nibedanpati@gmail.com"
-                  className="text-muted-foreground hover:text-primary"
-                >
-                  <Mail className="w-6 h-6" />
-                  <span className="sr-only">Email</span>
-                </a>
-              </div>
-            </div>
+          
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-foreground">Quick Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/skills" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Skills
+                </Link>
+              </li>
+              <li>
+                <Link href="/projects" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Projects
+                </Link>
+              </li>
+              <li>
+                <Link href="/experience" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Experience
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+          
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-foreground">Contact Info</h3>
+            <p className="text-sm text-muted-foreground">Ghaziabad, Uttar Pradesh 201005</p>
+            <p className="text-sm text-muted-foreground">nibedanpati@gmail.com</p>
+            <Link href="/contact" className="text-sm text-primary hover:text-primary/80 transition-colors inline-block mt-2">
+              Send me a message →
+            </Link>
           </div>
         </div>
-        <div className="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-muted-foreground">
+        
+        <div className="border-t border-border mt-10 pt-6">
+          <p className="text-center text-xs text-muted-foreground">
             © {new Date().getFullYear()} Nibedan Pati. All rights reserved.
-          </p>
-          <p className="text-sm text-muted-foreground mt-4 md:mt-0">
-            Built with Next.js, Tailwind CSS, and shadcn/ui
           </p>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

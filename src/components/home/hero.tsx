@@ -123,11 +123,11 @@ const HeroSection = () => {
                 <div className="text-sm text-foreground/90 text-center">Hackathon Winner</div>
               </div>
               <div className="parallax glass-card p-6 absolute top-32 md:top-40 right-20 md:right-40 w-64 h-40 md:w-80 md:h-48 flex flex-col justify-center items-center" data-speed="1">
-                <div className="text-5xl font-bold text-primary mb-2">3+</div>
+                <div className="text-5xl font-bold text-primary mb-2">1+</div>
                 <div className="text-sm text-foreground/90 text-center">Years of Coding Experience</div>
               </div>
               <div className="parallax glass-card p-6 absolute top-64 md:top-80 right-0 w-64 h-40 md:w-80 md:h-48 flex flex-col justify-center items-center" data-speed="0.5">
-                <div className="text-5xl font-bold text-primary mb-2">5+</div>
+                <div className="text-5xl font-bold text-primary mb-2">10+</div>
                 <div className="text-sm text-foreground/90 text-center">Projects Completed</div>
               </div>
             </motion.div>
