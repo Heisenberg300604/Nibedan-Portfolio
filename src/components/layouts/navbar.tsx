@@ -1,144 +1,153 @@
 "use client";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Menu, X, FileDown, Coffee } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-// import { ModeToggle } from "@/components/mode-toggle";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { Menu, Coffee } from "lucide-react";
-
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Skills", href: "/skills" },
-  { name: "Projects", href: "/projects" },
-  { name: "Hackathons", href: "/hackathons" },
-  { name: "Experience", href: "/experience" },
-  { name: "Contact", href: "#contact" },
-];
-
-export default function Navbar() {
-  const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Skills', path: '/skills' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Experience', path: '/experience' },
+    { name: 'Hackathons', path: '/hackathons' },
+    { name: 'Contact', path: '/contact' },
+  ];
 
   return (
     <header
-      className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300 border-b",
-        scrolled 
-          ? "bg-background/90 backdrop-blur-md py-2 shadow-lg border-border/10" 
-          : "bg-transparent py-4 border-transparent"
-      )}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-background/80 backdrop-blur-lg' : 'bg-transparent'
+      }`}
     >
-      <div className="container flex justify-between items-center">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="text-2xl font-bold bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
-            Nibedan
-          </span>
-        </Link>
+      <nav className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          <Link href="/" className="flex items-center space-x-2">
+            <span className="text-xl font-bold text-gradient-primary">Nibedan Pati</span>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-4">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={cn(
-                "text-sm transition-colors hover:text-primary px-3 py-2 rounded-md",
-                pathname === item.href 
-                  ? "text-primary font-medium bg-primary/10" 
-                  : "text-muted-foreground hover:bg-accent/50"
-              )}
-            >
-              {item.name}
-            </Link>
-          ))}
-          <Button 
-            asChild 
-            size="sm" 
-            className="rounded-full bg-amber-600 hover:bg-amber-700 text-white"
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-4">
+            <div className="flex space-x-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.path}
+                  className={`text-sm font-medium transition-colors ${
+                    location === link.path
+                      ? 'text-primary'
+                      : 'text-foreground/70 hover:text-foreground'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+            <div className="flex items-center space-x-4">
+              <Button
+                variant="outline"
+                className="flex items-center gap-2 bg-amber-50 hover:bg-amber-100 text-amber-700 border-amber-200 hover:text-amber-800"
+                size="sm"
+                asChild
+              >
+                <a href="https://buymeacoffee.com/heisenberg300604" target="_blank" rel="noopener noreferrer">
+                  <Coffee className="w-4 h-4" />
+                  Buy me a coffee
+                </a>
+              </Button>
+              <Button
+                variant="default"
+                className="flex items-center gap-2"
+                size="sm"
+                asChild
+              >
+                <a href="/nibedan-resume.pdf" download>
+                  <FileDown className="w-4 h-4" />
+                  Resume
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden text-foreground p-2 focus:outline-none"
           >
-            <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer">
-              <Coffee className="h-4 w-4 mr-2" />
-              Buy Me Coffee
-            </a>
-          </Button>
-          <Button 
-            asChild 
-            size="sm" 
-            variant="outline" 
-            className="rounded-full border-primary text-primary hover:bg-primary/10"
-          >
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-              Resume
-            </a>
-          </Button>
-          {/* <ModeToggle /> */}
-        </nav>
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
 
         {/* Mobile Navigation */}
-        <div className="flex items-center md:hidden space-x-4">
-          {/* <ModeToggle /> */}
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle menu</span>
+        {isOpen && (
+          <div className="md:hidden absolute left-0 right-0 top-full bg-background/95 backdrop-blur-lg border-t border-border animate-fade-in">
+            <div className="flex flex-col space-y-4 py-6 px-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.path}
+                  onClick={closeMenu}
+                  className={`text-sm font-medium transition-colors p-2 ${
+                    location === link.path
+                      ? 'text-primary'
+                      : 'text-foreground/70 hover:text-foreground'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Button
+                variant="outline"
+                className="flex items-center justify-center gap-2 bg-amber-50 hover:bg-amber-100 text-amber-700 border-amber-200 hover:text-amber-800"
+                asChild
+              >
+                <a href="https://buymeacoffee.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">
+                  <Coffee className="w-4 h-4" />
+                  Buy me a coffee
+                </a>
               </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="bg-background border-l-border/20">
-              <nav className="flex flex-col space-y-4 mt-12">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={cn(
-                      "text-lg transition-colors hover:text-primary px-4 py-3 rounded-md",
-                      pathname === item.href 
-                        ? "text-primary font-medium bg-primary/10" 
-                        : "text-muted-foreground hover:bg-accent/50"
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-                <Button 
-                  asChild 
-                  className="w-full mt-2 bg-amber-600 hover:bg-amber-700 text-white"
-                >
-                  <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer">
-                    <Coffee className="h-4 w-4 mr-2" />
-                    Buy Me Coffee
-                  </a>
-                </Button>
-                <Button 
-                  asChild 
-                  variant="outline" 
-                  className="w-full mt-2 border-primary text-primary hover:bg-primary/10"
-                >
-                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                    Download Resume
-                  </a>
-                </Button>
-              </nav>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </div>
+              <Button
+                variant="default"
+                className="flex items-center justify-center gap-2 w-full mt-2"
+                asChild
+              >
+                <a href="/nibedan-resume.pdf" download>
+                  <FileDown className="w-4 h-4" />
+                  Download Resume
+                </a>
+              </Button>
+            </div>
+          </div>
+        )}
+      </nav>
     </header>
   );
-}
+};
+
+export default Navbar;

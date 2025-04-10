@@ -1,218 +1,171 @@
-"use client";
+"use client"
+import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Github, Linkedin } from 'lucide-react';
+import Link from 'next/link';
 
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ChevronDown, Code, Award, Briefcase } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-export default function Hero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  // Particle animation effect
+const HeroSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Parallax effect
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let particles: {
-      x: number;
-      y: number;
-      size: number;
-      speedX: number;
-      speedY: number;
-      opacity: number;
-    }[] = [];
-    let animationFrameId: number;
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initParticles();
-    };
-
-    const initParticles = () => {
-      particles = [];
-      const particleCount = Math.min(Math.floor(window.innerWidth / 10), 100);
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
       
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 2 + 1,
-          speedX: Math.random() * 1 - 0.5,
-          speedY: Math.random() * 1 - 0.5,
-          opacity: Math.random() * 0.5 + 0.1
-        });
-      }
-    };
-
-    const drawParticles = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const { clientX, clientY } = e;
+      const { left, top, width, height } = containerRef.current.getBoundingClientRect();
       
-      particles.forEach(particle => {
-        ctx.fillStyle = `rgba(99, 102, 241, ${particle.opacity})`;
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fill();
+      const x = (clientX - left) / width - 0.5;
+      const y = (clientY - top) / height - 0.5;
+      
+      const elements = containerRef.current.querySelectorAll('.parallax');
+      elements.forEach((el) => {
+        const speed = parseFloat((el as HTMLElement).dataset.speed || '1');
+        const rotateX = y * 10 * speed;
+        const rotateY = -x * 10 * speed;
         
-        // Update position
-        particle.x += particle.speedX;
-        particle.y += particle.speedY;
-        
-        // Wrap around edges
-        if (particle.x < 0) particle.x = canvas.width;
-        if (particle.x > canvas.width) particle.x = 0;
-        if (particle.y < 0) particle.y = canvas.height;
-        if (particle.y > canvas.height) particle.y = 0;
+        (el as HTMLElement).style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
       });
-      
-      // Draw connections between close particles
-      drawConnections();
-      
-      animationFrameId = requestAnimationFrame(drawParticles);
     };
-
-    const drawConnections = () => {
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < 100) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(99, 102, 241, ${0.2 * (1 - distance / 100)})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-    };
-
-    resizeCanvas();
-    drawParticles();
     
-    window.addEventListener("resize", resizeCanvas);
-    
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      cancelAnimationFrame(animationFrameId);
-    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  const scrollToNext = () => {
-    const aboutSection = document.getElementById("about");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
+  
   return (
-    <div className="relative min-h-screen overflow-hidden flex items-center justify-center">
-      <canvas 
-        ref={canvasRef} 
-        className="absolute inset-0 w-full h-full -z-10"
-      />
+    <section 
+      ref={containerRef}
+      className="relative h-screen flex flex-col justify-center items-center overflow-hidden py-20 px-6"
+    >
+      {/* Abstract background shape */}
+      <div className="absolute inset-0 overflow-hidden -z-10">
+        <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[100px]"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-[300px] h-[300px] rounded-full bg-primary/20 blur-[80px]"></div>
+      </div>
       
-      <div 
-        className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background"
-      />
-      
-      <div className="container px-4 md:px-6 mx-auto relative z-10">
-        <div className="text-center space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="inline-block bg-primary/10 text-primary rounded-full px-4 py-1.5 mb-4">
-              <span className="text-sm font-medium">Full Stack Developer</span>
-            </div>
-          </motion.div>
+      <div className="container mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+          {/* Left content - Text */}
+          <div className="lg:col-span-3 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <p className="text-primary font-medium mb-2">Hello, I'm</p>
+              <h1 className="text-4xl md:text-6xl font-bold text-gradient">
+                Nibedan Pati
+              </h1>
+              <p className="text-xl md:text-2xl font-medium text-foreground/80 mt-2">
+                Full Stack Web Developer & BTech Student
+              </p>
+            </motion.div>
+            
+            <motion.p 
+              className="text-muted-foreground text-base md:text-lg max-w-xl"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              I'm a passionate web developer with expertise in Web Development, 
+              specializing in building seamless and intuitive web applications. 
+              Currently expanding my skills with Java, IOT and Gen AI.
+            </motion.p>
+            
+            <motion.div 
+              className="flex flex-wrap items-center gap-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+            >
+              <Button asChild size="lg">
+                <Link href="/contact">
+                  Get in touch <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              
+              <Button variant="outline" size="lg" asChild>
+                <Link href="/projects">View my projects</Link>
+              </Button>
+              
+              <div className="flex items-center gap-4 ml-0 md:ml-4 mt-4 md:mt-0">
+                <a 
+                  href="https://github.com/Heisenberg300604" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-foreground/70 hover:text-primary transition-colors"
+                >
+                  <Github className="h-6 w-6" />
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/nibedan-pati-2139b3277" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-foreground/70 hover:text-primary transition-colors"
+                >
+                  <Linkedin className="h-6 w-6" />
+                </a>
+              </div>
+            </motion.div>
+          </div>
           
-          <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <span>Hey, I&apos;m </span>
-            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
-              Nibedan Pati
-            </span>
-          </motion.h1>
-          
-          <motion.p 
-            className="max-w-2xl mx-auto text-xl text-muted-foreground"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            I build exceptional digital experiences with modern web technologies.
-            4X Hackathon Winner specialized in Full Stack Development.
-          </motion.p>
-          
-          <motion.div
-            className="flex flex-wrap justify-center gap-3 mt-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <div className="flex items-center space-x-2 bg-card px-3 py-1.5 rounded-full">
-              <Code size={16} className="text-primary" />
-              <span className="text-sm">React & Next.js</span>
-            </div>
-            <div className="flex items-center space-x-2 bg-card px-3 py-1.5 rounded-full">
-              <Code size={16} className="text-primary" />
-              <span className="text-sm">TypeScript</span>
-            </div>
-            <div className="flex items-center space-x-2 bg-card px-3 py-1.5 rounded-full">
-              <Award size={16} className="text-primary" />
-              <span className="text-sm">4X Hackathon Winner</span>
-            </div>
-            <div className="flex items-center space-x-2 bg-card px-3 py-1.5 rounded-full">
-              <Briefcase size={16} className="text-primary" />
-              <span className="text-sm">GSSOC&apos;24 Contributor</span>
-            </div>
-          </motion.div>
-          
-          <motion.div
-            className="flex justify-center space-x-4 mt-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <Button size="lg" asChild className="rounded-full">
-              <a href="/projects">View Projects</a>
-            </Button>
-            <Button size="lg" variant="outline" asChild className="rounded-full">
-              <a href="/contact">Contact Me</a>
-            </Button>
-          </motion.div>
+          {/* Right content - Animated 3D Cards */}
+          <div className="lg:col-span-2 relative h-[300px] md:h-[400px]">
+            <motion.div
+              className="absolute top-0 right-0 w-full h-full"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+            >
+              <div className="parallax glass-card p-6 absolute top-0 right-0 w-64 h-40 md:w-80 md:h-48 flex flex-col justify-center items-center" data-speed="1.5">
+                <div className="text-5xl font-bold text-primary mb-2">4x</div>
+                <div className="text-sm text-foreground/90 text-center">Hackathon Winner</div>
+              </div>
+              <div className="parallax glass-card p-6 absolute top-32 md:top-40 right-20 md:right-40 w-64 h-40 md:w-80 md:h-48 flex flex-col justify-center items-center" data-speed="1">
+                <div className="text-5xl font-bold text-primary mb-2">3+</div>
+                <div className="text-sm text-foreground/90 text-center">Years of Coding Experience</div>
+              </div>
+              <div className="parallax glass-card p-6 absolute top-64 md:top-80 right-0 w-64 h-40 md:w-80 md:h-48 flex flex-col justify-center items-center" data-speed="0.5">
+                <div className="text-5xl font-bold text-primary mb-2">5+</div>
+                <div className="text-sm text-foreground/90 text-center">Projects Completed</div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
       
-      <motion.div 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-      >
-        <Button
-          variant="ghost"
-          size="icon"
-          className="rounded-full animate-bounce"
-          onClick={scrollToNext}
+      {/* Scroll indicator */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+        <motion.div
+          className="w-6 h-10 rounded-full border-2 border-foreground/20 flex items-center justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.5 }}
         >
-          <ChevronDown />
-          <span className="sr-only">Scroll down</span>
-        </Button>
-      </motion.div>
-    </div>
+          <motion.div 
+            className="w-1.5 h-1.5 bg-primary rounded-full"
+            animate={{ 
+              y: [0, 12, 0],
+            }}
+            transition={{ 
+              duration: 1.5,
+              repeat: Infinity,
+              repeatType: "loop",
+            }}
+          />
+        </motion.div>
+        <motion.p 
+          className="text-xs text-foreground/40 mt-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.4, duration: 0.5 }}
+        >
+          Scroll down
+        </motion.p>
+      </div>
+    </section>
   );
-}
+};
+
+export default HeroSection;
