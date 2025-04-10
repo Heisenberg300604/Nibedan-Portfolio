@@ -19,6 +19,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Nibedan's Portfolio",
   description: "My Personal Porttfolio Website",
+  icons: {
+    icon: "/Nibedan.svg",
+  },
 };
 
 export default function RootLayout({
@@ -28,6 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="dark">
+      <head>
+        <link rel="icon" href="/Nibedan.svg" type="image/svg+xml" />
+      </head>
       <body className={cn(
         "min-h-screen bg-background font-sans antialiased",
       )}>
