@@ -1,5 +1,6 @@
 import About from "@/components/home/about";
 import Hero from "@/components/home/hero";
+import ProfessionalContactForm from "@/components/home/contact";
 
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <>
       <Hero />
       <About />
+      <ProfessionalContactForm />
     </>
   );
 }

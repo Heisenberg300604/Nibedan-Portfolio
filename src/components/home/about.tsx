@@ -23,7 +23,7 @@ export default function About() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold tracking-tight">
-              <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
                 About Me
               </span>
             </h2>

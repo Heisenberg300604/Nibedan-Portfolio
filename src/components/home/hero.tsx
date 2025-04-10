@@ -142,7 +142,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <span>Hey, I&apos;m </span>
-            <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
               Nibedan Pati
             </span>
           </motion.h1>
