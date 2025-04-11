@@ -1,11 +1,14 @@
 "use client"
 import { motion } from 'framer-motion';
 import ProjectCard, { Project } from './ProjectCard';
+import techHive from "@/public/images/TechHive.png"
+import budgetMap from "@/public/images/BudgetMap.png"
+import flox from "@/public/images/Flox.png"
 
 const projectImages = {
-  techhive: 'https://images.unsplash.com/photo-1607082349566-187342175e2f?q=80&w=2070&auto=format&fit=crop',
-  budgetmap: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2026&auto=format&fit=crop',
-  recap: 'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?q=80&w=2070&auto=format&fit=crop',
+  techhive: techHive,
+  budgetmap: budgetMap,
+  flox: flox,
 };
 
 const projects: Project[] = [
@@ -14,7 +17,7 @@ const projects: Project[] = [
     title: 'TechHive: E-Commerce',
     description: 'A comprehensive e-commerce platform using React for the frontend and Firebase for the backend.',
     tags: ['React', 'Redux', 'Firebase', 'TailwindCSS', 'RazorPay'],
-    github: 'https://github.com/Heisenberg300604/',
+    github: 'https://github.com/Heisenberg300604/TechHive-E-Commerce-Full-Stack-Project',
     demo: '#',
     image: projectImages.techhive,
     features: [
@@ -29,7 +32,7 @@ const projects: Project[] = [
     title: 'BudgetMap - Expense Tracker',
     description: 'A responsive expense tracking platform with React, TypeScript, and Tailwind CSS.',
     tags: ['MERN', 'TypeScript', 'Tailwind CSS', 'Shadcn', 'JWT'],
-    github: 'https://github.com/Heisenberg300604/',
+    github: 'https://github.com/Heisenberg300604/BudgetMap',
     image: projectImages.budgetmap,
     features: [
       'Dynamic dashboard for expense categorization',
@@ -40,11 +43,11 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: 'Recap: AI-Powered Study Companion',
-    description: 'An AI-powered note organization platform developed during a hackathon.',
-    tags: ['React', 'Tailwind CSS', 'CohereAI', 'Firebase', 'Tesseract.js'],
-    github: 'https://github.com/Heisenberg300604/',
-    image: projectImages.recap,
+    title: 'Flox : Social Media Platform',
+    description: 'Modern Social Media Platform built with NextJS, TypeScript, and Tailwind CSS.',
+    tags: ['NextJS', 'Tailwind CSS', 'Clerk', 'Prisma', 'PostgreSQL'],
+    github: 'https://github.com/Heisenberg300604/Flox',
+    image: projectImages.flox,
     features: [
       'Automatic categorization and customizable views',
       'OCR for handwritten note conversion',
