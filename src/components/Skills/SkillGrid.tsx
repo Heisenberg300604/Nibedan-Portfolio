@@ -5,11 +5,21 @@ import {
   SiRedux, SiTailwindcss, SiBootstrap, SiSass, SiMui,
   SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiFirebase,
   SiGit, SiGithub, SiFigma, SiPostman,
-  SiJira, SiCanva, SiTypescript, SiC, SiWordpress, SiAppwrite
+  SiJira, SiCanva, SiTypescript, SiC, SiWordpress, SiAppwrite,SiFastapi,
+  SiFlask,
+  SiPostgresql,
+  SiSupabase,
+  SiVercel,
+  SiNetlify,
+  SiRender,
+  SiRailway,
+  SiStreamlit,
+  SiSocketdotio
 } from 'react-icons/si';
 import { Card } from '@/components/ui/card';
 import { FaCode } from 'react-icons/fa'; // from Font Awesome
 import { FaJava } from "react-icons/fa";
+import { FaPython } from "react-icons/fa";
 
 interface SkillCategory {
   name: string;
@@ -33,6 +43,7 @@ const skillCategories: SkillCategory[] = [
       { name: 'Bootstrap', icon: SiBootstrap },
       { name: 'Sass', icon: SiSass },
       { name: 'Material UI', icon: SiMui },
+      { name: 'Streamlit', icon: SiStreamlit },
     ],
   },
   {
@@ -40,10 +51,20 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: 'Node.js', icon: SiNodedotjs },
       { name: 'ExpressJS', icon: SiExpress },
-      { name: 'MongoDB', icon: SiMongodb },
-      { name: 'MySQL', icon: SiMysql },
+      { name: 'FastAPI', icon: SiFastapi },
+      { name: 'Flask', icon: SiFlask },
       { name: 'Firebase', icon: SiFirebase },
       { name: 'Appwrite', icon: SiAppwrite },
+      { name: 'Supabase', icon: SiSupabase },
+      { name: 'Socket.io', icon: SiSocketdotio },
+    ],
+  },
+  {
+    name: 'Database',
+    skills: [
+      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'MySQL', icon: SiMysql },
+      { name: 'PostgreSQL', icon: SiPostgresql },
     ],
   },
   {
@@ -53,6 +74,22 @@ const skillCategories: SkillCategory[] = [
       { name: 'TypeScript', icon: SiTypescript },
       { name: 'C', icon: SiC },
       { name: 'Java', icon: FaJava },
+      { name: 'Python', icon: FaPython },
+    ],
+  },
+  {
+    name: 'Deployment',
+    skills: [
+      { name: 'Vercel', icon: SiVercel },
+      { name: 'Netlify', icon: SiNetlify },
+      { name: 'Render', icon: SiRender },
+      { name: 'Railways', icon: SiRailway },
+    ],
+  },
+  {
+    name: 'Mobile App Development',
+    skills: [
+      { name: 'React Native', icon: SiReact },
     ],
   },
   {
@@ -71,7 +108,6 @@ const skillCategories: SkillCategory[] = [
     name: 'Other Skills',
     skills: [
       { name: 'WordPress', icon: SiWordpress },
-      { name: 'React Native', icon: SiReact },
       { name: 'UI/UX Design', icon: SiFigma },
     ],
   },
