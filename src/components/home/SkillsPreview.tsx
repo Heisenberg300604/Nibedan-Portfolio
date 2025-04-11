@@ -1,22 +1,50 @@
 "use client"
+
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import SectionHeading from '../Common/SectionHeading';
+import { 
+  SiReact, SiNextdotjs, SiJavascript, SiHtml5, SiCss3, SiTailwindcss,
+  SiRedux, SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiFirebase,
+  SiGit, SiGithub, SiFigma, SiPostman, SiJira,SiAppwrite
+} from 'react-icons/si';
+import { FaCode } from 'react-icons/fa'; // from Font Awesome
 
 const skillCategories = [
   {
     name: 'Frontend',
-    skills: ['HTML/CSS', 'JavaScript', 'React', 'NextJS', 'Tailwind CSS', 'Redux'],
+    skills: [
+      { name: 'React', icon: SiReact },
+      { name: 'NextJS', icon: SiNextdotjs },
+      { name: 'JavaScript', icon: SiJavascript },
+      { name: 'HTML/CSS', icon: SiHtml5 },
+      { name: 'TailwindCSS', icon: SiTailwindcss },
+      { name: 'Redux', icon: SiRedux },
+    ],
   },
   {
     name: 'Backend',
-    skills: ['Node.js', 'Express', 'MongoDB', 'MySQL', 'Firebase', 'Appwrite'],
+    skills: [
+      { name: 'Node.js', icon: SiNodedotjs },
+      { name: 'Express', icon: SiExpress },
+      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'MySQL', icon: SiMysql },
+      { name: 'Firebase', icon: SiFirebase },
+      { name: 'Appwrite', icon: SiAppwrite },
+    ],
   },
   {
     name: 'Tools',
-    skills: ['Git', 'GitHub', 'VS Code', 'Figma', 'Postman', 'Jira'],
+    skills: [
+      { name: 'Git', icon: SiGit },
+      { name: 'GitHub', icon: SiGithub },
+      { name: 'VS Code', icon: FaCode },
+      { name: 'Figma', icon: SiFigma },
+      { name: 'Postman', icon: SiPostman },
+      { name: 'Jira', icon: SiJira },
+    ],
   },
 ];
 
@@ -40,14 +68,15 @@ const SkillsPreview = () => {
               transition={{ delay: index * 0.1, duration: 0.5 }}
             >
               <h3 className="text-xl font-semibold mb-4 text-primary">{category.name}</h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-3 gap-4">
                 {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 bg-background/80 rounded-full text-sm"
+                  <div 
+                    key={skill.name}
+                    className="flex flex-col items-center p-2 rounded-lg transition-all duration-300 hover:bg-primary/10 group"
                   >
-                    {skill}
-                  </span>
+                    <skill.icon className="h-8 w-8 mb-2 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors">{skill.name}</span>
+                  </div>
                 ))}
               </div>
             </motion.div>

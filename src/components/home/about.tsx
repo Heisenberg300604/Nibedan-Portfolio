@@ -28,14 +28,14 @@ const About = () => {
   return (
     <section className="py-20 px-6" id="about">
       <div className="container mx-auto">
-        <SectionHeading 
-          title="About Me" 
+        <SectionHeading
+          title="About Me"
           subtitle="Get to know more about me and my journey as a web developer"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Left Column - Image */}
-          <motion.div 
+          <motion.div
             className="relative"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -43,17 +43,17 @@ const About = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="aspect-square max-w-md mx-auto lg:mx-0 relative overflow-hidden rounded-2xl animated-border">
-  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent mix-blend-overlay"></div>
-  <div className="h-full w-full bg-muted rounded-2xl flex items-center justify-center">
-    <Image
-      src={nibedanPic}
-      alt="Nibedan Picture"
-      className="object-cover h-full w-full rounded-2xl"
-      priority
-    />
-  </div>
-</div>
-            
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent mix-blend-overlay"></div>
+              <div className="h-full w-full bg-muted rounded-2xl flex items-center justify-center">
+                <Image
+                  src={nibedanPic}
+                  alt="Nibedan Picture"
+                  className="object-cover h-full w-full rounded-2xl"
+                  priority
+                />
+              </div>
+            </div>
+
             <div className="absolute -bottom-8 -right-8 p-6 glass-card">
               <div className="flex gap-6">
                 {stats.map((stat, index) => (
@@ -65,7 +65,7 @@ const About = () => {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Right Column - Text */}
           <div className="space-y-6">
             <motion.div
@@ -79,20 +79,20 @@ const About = () => {
               <h3 className="text-2xl font-semibold text-foreground">
                 I'm a passionate <span className="text-primary">Full Stack Web Developer</span> based in Ghaziabad
               </h3>
-              
+
               <p className="text-muted-foreground">
                 I am a passionate web developer with knowledge in React and JavaScript. I specialize in building seamless and intuitive web applications, transforming ideas into functional and visually appealing realities.
               </p>
-              
+
               <p className="text-muted-foreground">
                 Currently, I am expanding my skill set by learning Java and exploring various aspects of development such as React Native, Python, and more. As an undergraduate BTech student in Information Technology at BPIT, I'm constantly seeking to grow my technical abilities.
               </p>
-              
+
               <p className="text-muted-foreground">
                 I'm especially proud of my achievements in hackathons, having won 4 competitions, and my contributions as a WebDeveloper at GeekRoom and as a contributor to GSSOC'24.
               </p>
             </motion.div>
-            
+
             <motion.div
               className="pt-4"
               initial="hidden"
@@ -101,8 +101,8 @@ const About = () => {
               custom={2}
               variants={fadeInVariants}
             >
-              <Link 
-                href="/experience" 
+              <Link
+                href="/experience"
                 className="inline-flex items-center text-primary hover:underline group"
               >
                 View my experience

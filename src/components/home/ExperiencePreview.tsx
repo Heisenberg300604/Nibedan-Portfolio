@@ -1,7 +1,7 @@
 "use client"
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight, Calendar, Building, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import SectionHeading from '../Common/SectionHeading';
 
@@ -10,8 +10,15 @@ const experiences = [
     id: 1,
     role: 'Web Developer Intern',
     company: 'Eterna Infotech Pvt Ltd',
+    location: 'Remote',
     period: 'November 2024 - Present',
     description: 'Enhanced MTS LMS website by improving both frontend and backend functionality using React, Sass, MUI, and MySQL.',
+    responsibilities: [
+      'Actively collaborated with cross-functional teams to resolve bugs and implement new features',
+      'Conducted thorough code reviews through Jira and GitHub',
+      'Optimized APIs with Postman and MySQL Workbench for improved system performance'
+    ],
+    tags: ['React', 'Sass', 'MUI', 'MySQL', 'Jira', 'GitHub']
   }
 ];
 
@@ -50,17 +57,50 @@ const ExperiencePreview = () => {
             <motion.div
               key={exp.id}
               variants={itemVariants}
-              className="glass-card p-6 mb-8"
+              className="glass-card p-6 mb-8 border border-primary/20 relative overflow-hidden"
             >
+              {/* Decorative element */}
+              <div className="absolute top-0 left-0 w-2 h-full bg-primary"></div>
+              
               <div className="flex flex-col md:flex-row justify-between mb-2">
                 <h3 className="text-xl font-semibold text-foreground">{exp.role}</h3>
                 <div className="flex items-center text-muted-foreground text-sm">
-                  <Calendar className="h-4 w-4 mr-1" />
+                  <Calendar className="h-4 w-4 mr-1 text-primary" />
                   {exp.period}
                 </div>
               </div>
-              <h4 className="text-primary mb-3">{exp.company}</h4>
-              <p className="text-muted-foreground">{exp.description}</p>
+              
+              <div className="flex items-center mb-3">
+                <Building className="h-4 w-4 mr-1 text-primary" />
+                <h4 className="text-primary">{exp.company}</h4>
+              </div>
+              
+              <div className="flex items-center mb-4 text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4 mr-1" />
+                {exp.location}
+              </div>
+              
+              <p className="text-muted-foreground mb-4">{exp.description}</p>
+              
+              <ul className="space-y-1 mb-4">
+                {exp.responsibilities.map((resp, idx) => (
+                  <li key={idx} className="text-sm text-muted-foreground flex items-start">
+                    <span className="mr-2 text-primary">•</span>
+                    {resp}
+                  </li>
+                ))}
+              </ul>
+              
+              <div className="flex flex-wrap gap-2 mt-3">
+                {exp.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </motion.div>
