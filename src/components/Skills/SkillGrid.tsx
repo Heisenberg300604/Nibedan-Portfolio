@@ -14,7 +14,9 @@ import {
   SiRender,
   SiRailway,
   SiStreamlit,
-  SiSocketdotio
+  SiSocketdotio,
+  SiIota,
+  SiArduino
 } from 'react-icons/si';
 import { Card } from '@/components/ui/card';
 import { FaCode } from 'react-icons/fa'; // from Font Awesome
@@ -109,6 +111,7 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: 'WordPress', icon: SiWordpress },
       { name: 'UI/UX Design', icon: SiFigma },
+      { name : 'Arduino', icon: SiArduino },
     ],
   },
 ];
