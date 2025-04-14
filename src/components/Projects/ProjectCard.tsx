@@ -3,6 +3,7 @@ import { Github, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import Image from 'next/image';
 
 export interface Project {
   id: number;
@@ -22,6 +23,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const [showFeatures, setShowFeatures] = useState(false);
+  console.log(project.image)
 
   return (
     <motion.div
@@ -35,18 +37,20 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       <Card className="overflow-hidden h-full border border-primary/20 hover:border-primary/40 transition-all duration-300 bg-card/50">
         {project.image && (
           <div className="aspect-video w-full overflow-hidden">
-            <img 
-              src={project.image} 
-              alt={project.title} 
+            <Image
+              src={project.image}
+              alt={project.title}
               className="w-full h-full object-cover transition-all duration-500 hover:scale-105"
+              width={800} // Add appropriate width
+              height={450} // Add appropriate height
             />
           </div>
         )}
-        
+
         <CardContent className="p-6">
           <h3 className="text-xl font-semibold mb-2 text-foreground">{project.title}</h3>
           <p className="text-muted-foreground mb-4">{project.description}</p>
-          
+
           <div className="flex flex-wrap gap-2 mb-6">
             {project.tags.map((tag) => (
               <span
@@ -59,7 +63,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           </div>
 
           <div className="mb-5">
-            <button 
+            <button
               onClick={() => setShowFeatures(!showFeatures)}
               className="flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors"
             >
@@ -93,11 +97,11 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
               </motion.div>
             )}
           </div>
-          
+
           <div className="flex items-center space-x-4 mt-auto">
-            <a 
-              href={project.github} 
-              target="_blank" 
+            <a
+              href={project.github}
+              target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors flex items-center"
             >
@@ -105,9 +109,9 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
               <span className="text-sm">GitHub</span>
             </a>
             {project.demo && (
-              <a 
-                href={project.demo} 
-                target="_blank" 
+              <a
+                href={project.demo}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors flex items-center"
               >

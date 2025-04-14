@@ -87,7 +87,7 @@ const Navbar = () => {
                 size="sm"
                 asChild
               >
-                <a href="/nibedan-resume.pdf" download>
+                <a href="https://resumenibedanpati.tiiny.site/" target="_blank" rel="noopener noreferrer">
                   <FileDown className="w-4 h-4" />
                   Resume
                 </a>
@@ -127,7 +127,7 @@ const Navbar = () => {
                 className="flex items-center justify-center gap-2 bg-amber-50 hover:bg-amber-100 text-amber-700 border-amber-200 hover:text-amber-800"
                 asChild
               >
-                <a href="https://buymeacoffee.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">
+                <a href="https://buymeacoffee.com/heisenberg300604" target="_blank" rel="noopener noreferrer">
                   <Coffee className="w-4 h-4" />
                   Buy me a coffee
                 </a>
@@ -137,7 +137,7 @@ const Navbar = () => {
                 className="flex items-center justify-center gap-2 w-full mt-2"
                 asChild
               >
-                <a href="/nibedan-resume.pdf" download>
+                <a href="https://resumenibedanpati.tiiny.site/" target="_blank" rel="noopener noreferrer">
                   <FileDown className="w-4 h-4" />
                   Download Resume
                 </a>

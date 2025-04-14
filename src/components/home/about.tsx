@@ -77,19 +77,19 @@ const About = () => {
               variants={fadeInVariants}
             >
               <h3 className="text-2xl font-semibold text-foreground">
-                I'm a passionate <span className="text-primary">Full Stack Web Developer</span> based in Ghaziabad
+                I'm a passionate <span className="text-primary">Full Stack Web Developer</span>
               </h3>
 
               <p className="text-muted-foreground">
-                I am a passionate web developer with knowledge in React and JavaScript. I specialize in building seamless and intuitive web applications, transforming ideas into functional and visually appealing realities.
+                I am a passionate web developer with knowledge in Modern Web Development. I specialize in building seamless and intuitive web applications, transforming ideas into functional and visually appealing realities.
               </p>
 
               <p className="text-muted-foreground">
-                Currently, I am expanding my skill set by learning Java and exploring various aspects of development such as React Native, Python, and more. As an undergraduate BTech student in Information Technology at BPIT, I'm constantly seeking to grow my technical abilities.
+                Currently, I am expanding my skill set by learning Java and exploring various aspects of development such as IOT , Generative AI and Data Structures Algorithms . As an undergraduate BTech student in Information Technology at BPIT, I'm constantly seeking to grow my technical abilities.
               </p>
 
               <p className="text-muted-foreground">
-                I'm especially proud of my achievements in hackathons, having won 4 competitions, and my contributions as a WebDeveloper at GeekRoom and as a contributor to GSSOC'24.
+                I'm especially proud of my achievements in hackathons, having won 4 competitions, and my contributions as a WebDeveloper at GeekRoom and as a contributor to Open Source Repositories.
               </p>
             </motion.div>
 

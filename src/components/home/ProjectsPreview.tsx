@@ -5,10 +5,13 @@ import { ArrowRight, Github, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import SectionHeading from '../Common/SectionHeading';
 import { Card, CardContent } from '@/components/ui/card';
+import techHive from "@/public/TechHive.png"
+import budgetMap from "@/public/images/BudgetMap.png"
+import Image from 'next/image';
 
 const projectImages = {
-  techhive: 'https://images.unsplash.com/photo-1607082349566-187342175e2f?q=80&w=2070&auto=format&fit=crop',
-  budgetmap: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2026&auto=format&fit=crop',
+  techhive: techHive,
+  budgetmap: budgetMap,
 };
 
 const projects = [
@@ -53,10 +56,12 @@ const ProjectsPreview = () => {
               <Card className="overflow-hidden h-full border border-primary/20 hover:border-primary/40 transition-all duration-300 bg-card/50">
                 {project.image && (
                   <div className="aspect-video w-full overflow-hidden">
-                    <img 
+                    <Image
                       src={project.image} 
                       alt={project.title} 
                       className="w-full h-full object-cover transition-all duration-500 hover:scale-105"
+                      width={800}
+                      height={450}
                     />
                   </div>
                 )}

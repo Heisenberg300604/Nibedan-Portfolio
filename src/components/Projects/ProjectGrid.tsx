@@ -1,7 +1,7 @@
 "use client"
 import { motion } from 'framer-motion';
 import ProjectCard, { Project } from './ProjectCard';
-import techHive from "@/public/images/TechHive.png"
+import techHive from "@/public/TechHive.png"
 import budgetMap from "@/public/images/BudgetMap.png"
 import flox from "@/public/images/Flox.png"
 
