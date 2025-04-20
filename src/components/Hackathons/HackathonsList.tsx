@@ -26,7 +26,7 @@ const hackathons: Hackathon[] = [
   },
   {
     id: 2,
-    name: 'Namespace',
+    name: 'NS Hacks',
     date: 'January 2025',
     position: '1st',
     project: 'Recap',

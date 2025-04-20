@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail, Twitter, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -41,6 +41,14 @@ const Footer = () => {
                 className="text-foreground/70 hover:text-primary transition-colors"
               >
                 <Twitter className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://www.youtube.com/@TeamSynapse3/videos" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-foreground/70 hover:text-primary transition-colors"
+              >
+                <Youtube className="h-5 w-5" />
               </a>
             </div>
           </div>

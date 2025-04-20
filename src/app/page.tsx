@@ -5,6 +5,7 @@ import ContactCTA from "@/components/home/contact";
 import HackathonsPreview from "@/components/home/HackathonsPreview";
 import ProjectsPreview from "@/components/home/ProjectsPreview";
 import SkillsPreview from "@/components/home/SkillsPreview";
+import YouTubePreview from "@/components/home/YouTubePreview";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <ProjectsPreview/>
       <ExperiencePreview/>
       <HackathonsPreview/>
+      <YouTubePreview/>
       <ContactCTA/>
     </>
   );
