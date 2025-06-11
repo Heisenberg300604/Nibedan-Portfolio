@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/layouts/navbar";
 import Footer from "@/components/layouts/footer";
+import CustomCursor from "@/components/Common/CustomCursor";
 import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
 
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body className={cn(
         "min-h-screen bg-background font-sans antialiased",
       )}>
+        <CustomCursor />
         <Toaster position="top-center" richColors />
           <div className="relative flex min-h-screen flex-col">
             <Navbar />
