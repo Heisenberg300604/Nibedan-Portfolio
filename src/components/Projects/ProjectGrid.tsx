@@ -5,8 +5,8 @@ import techHive from "@/public/TechHive.png"
 import budgetMap from "@/public/images/BudgetMap.png"
 import flox from "@/public/images/Flox.png"
 import SignalX from "@/public/images/SignalX.png"
-import recap from "@/public/images/Recap.png"
-import athleto from "@/public/images/Athleto.png"
+import recap from "@/public/images/recap.png"
+import athleto from "@/public/images/athleto.png"
 
 const projectImages = {
   techhive: techHive,
