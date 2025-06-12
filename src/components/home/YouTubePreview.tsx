@@ -5,11 +5,14 @@ import { ArrowRight, Play } from 'lucide-react';
 import Link from 'next/link';
 import SectionHeading from '../Common/SectionHeading';
 import iit from '@/public/images/iit.png'
+import hackhaven from '@/public/images/hackhaven.jpg'
+import webd from '@/public/images/webD.png'
+import Image from 'next/image';
 
 interface VideoType {
   id: string;
   title: string;
-  thumbnail: string;
+  thumbnail: any;
   description: string;
   url: string;
 }
@@ -20,23 +23,23 @@ const featuredVideos: VideoType[] = [
   {
     id: '1',
     title: 'Web Development Complete Roadmap',
-    thumbnail: 'https://i.ytimg.com/an_webp/7VkE5wr6XuA/mqdefault_6s.webp?du=3000&sqp=CKCQlcAG&rs=AOn4CLB8RKovl3b6Oe3iDpMCA9FmEq3n1w',
-    description: 'A comprehensive guide to web development',
+    thumbnail: webd,
+    description: 'A comprehensive guide to web development where I explained the roadmap to become a Web Developer',
     url: 'https://youtu.be/7VkE5wr6XuA?si=NfgA3AYBOOZJKngV',
   },
   {
     id: '2',
     title: 'Winning IIT Delhi Hackathons',
-    thumbnail: 'https://i.ytimg.com/an_webp/qS_fP12CFw0/mqdefault_6s.webp?du=3000&sqp=CLCAlcAG&rs=AOn4CLBwBxdE_WrKyErWNFfZ161J-TU3zg',
+    thumbnail: iit,
     description: 'My experience participating in and winning hackathon at IIT Delhi',
     url: 'https://youtu.be/qS_fP12CFw0?si=z0SViGYVLYho-hux',
   },
   {
     id: '3',
-    title: 'Git and Github Made Easy',
-    thumbnail: 'https://i.ytimg.com/vi/PEbT4nIyu6w/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDqjewfyVZqkOC2i6qH1_917Pz9MQ',
-    description: 'A beginner-friendly guide to Git and GitHub in just 2 minutes',
-    url: 'https://youtu.be/PEbT4nIyu6w?si=np0clGyMiJKpOIvl',
+    title: 'Finalist in HackHaven 2.0 Hackathon',
+    thumbnail: hackhaven,
+    description: 'An increadible 24 hour hackathon journey where we ended up among Top 12 Finalists',
+    url: 'https://youtu.be/jETWLkn_lBQ?si=Ymw0pEtF4UMt00bs',
   },
 ];
 
@@ -74,10 +77,12 @@ const YouTubePreview = () => {
               transition={{ delay: index * 0.1, duration: 0.5 }}
             >
               <div className="relative aspect-video overflow-hidden">
-                <img 
+              <Image 
                   src={video.thumbnail} 
-                  alt={video.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  alt={video.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <a 
