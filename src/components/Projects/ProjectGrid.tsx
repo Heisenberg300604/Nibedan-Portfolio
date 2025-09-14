@@ -7,6 +7,7 @@ import flox from "@/public/images/Flox.png"
 import SignalX from "@/public/images/SignalX.png"
 import recap from "@/public/images/recap.png"
 import athleto from "@/public/images/athleto.png"
+import travello from "@/public/images/Travello.png"
 
 const projectImages = {
   techhive: techHive,
@@ -15,6 +16,7 @@ const projectImages = {
   signalx: SignalX,
   recap: recap,
   athleto: athleto,
+  travello: travello,
 };
 
 const projects: Project[] = [
@@ -66,8 +68,23 @@ const projects: Project[] = [
       'Data export in CSV/PDF formats',
     ],
   },
+  // {
+  //   id: 4,
+  //   title: 'URL Shortening Service',
+  //   description: 'A responsive expense tracking platform with React, TypeScript, and Tailwind CSS.',
+  //   tags: ['MERN', 'TypeScript', 'Tailwind CSS', 'Shadcn', 'JWT'],
+  //   github: 'https://github.com/Heisenberg300604/BudgetMap',
+  //   demo: 'https://budget-map-new.vercel.app/',
+  //   image: projectImages.budgetmap,
+  //   features: [
+  //     'Dynamic dashboard for expense categorization',
+  //     'Secure backend using Node.js and JWT authentication',
+  //     'Multi-currency support with live conversion rates',
+  //     'Data export in CSV/PDF formats',
+  //   ],
+  // },
   {
-    id: 4,
+    id: 5,
     title: 'Flox : Social Media Platform',
     description: 'Modern Social Media Platform built with NextJS, TypeScript, and Tailwind CSS.',
     tags: ['NextJS', 'Tailwind CSS', 'Clerk', 'Prisma', 'PostgreSQL'],
@@ -83,7 +100,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: 'Signal-X: AI-powered traffic management system',
     description: 'Signal-X is an AI-powered traffic management system using advanced computer vision, edge computing, and geospatial intelligence. With real-time sensor fusion, machine learning algorithms, and adaptive signal control, it enables dynamic congestion management and emergency vehicle prioritization.',
     tags: ['React', 'Tailwind CSS', 'Arduino', 'Flask', 'MongoDB', 'YOLOv8','MapMyIndia API', 'Streamlit',"React-Native-Expo"],
@@ -99,7 +116,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     title: 'Athleto: Empowering Underprivileged Athletes',
     description: 'Athleto is a virtual platform designed to support underprivileged athletes in India by providing them with the resources, training, and financial backing they need to excel in their respective sports.',
     tags: ['NextJS', 'Tailwind CSS', 'Typescript', 'Supabase', 'Nodejs', 'Deepseek AI','Vercel', 'Razorpay',"Docker"],
@@ -112,6 +129,22 @@ const projects: Project[] = [
       'Virtual Training with AR/VR: Offer immersive training experiences using Augmented Reality (AR) and Virtual Reality (VR) technologies.',
       'Sponsorship Matching Engine: Connect athletes with potential sponsors based on their skills, achievements, and needs.',
       'Sports Equipment and Scholarship Marketplace: Provide a platform for athletes to access affordable sports equipment and apply for scholarships.',
+    ],
+  },
+  {
+    id: 8,
+    title: 'Travello',
+    description: 'Tourism often lacks engagement and interactive experiences, leading to missed opportunities for travelers to discover unique local attractions and fully immerse themselves in local culture. Design a sophisticated gamified tourism application that motivates users to thoroughly explore their destination by earning points through uncovering hidden attractions and completing challenges and quests such as uploading photos taken from specific angles to match reference images. The application should also feature leaderboards, rewards, and integrated social sharing capabilities',
+    tags: ['React', 'Tailwind CSS', 'Javascript', 'MongoDB', 'Nodejs', 'Bcrypt','Vercel', 'Mapbox',"AWS", "OAuth"],
+    github: 'https://github.com/Heisenberg300604/Travello-Final',
+    demo: 'https://travello-project.vercel.app/',
+    image: projectImages.travello,
+    features: [
+      'Eco-Friendly Travel Encouragement: The Green Points System rewards eco-friendly actions like sustainable travel choices and walking with points that can be redeemed for local rewards, encouraging sustainable behavior. The Carbon Footprint Tracker monitors trip emissions and suggests greener alternatives to reduce environmental impact, promoting responsible travel decisions.',
+      'AI-Powered Personalization: The Dynamic Itinerary Generator in Travello uses AI to create personalized travel plans, adjusting them based on user preferences, real-time events, and weather updates. This ensures a customized and flexible travel experience.',
+      'Gamification: Travello rewards users with points, badges, and achievements for completing challenges, encouraging exploration. As users level up, they unlock exclusive content and discover hidden locations.',
+      'Challenges & Quest: Travello offers gamified experiences with photo challenges, leaderboards, and culture-based quests, enhancing user engagement. Successful participation earns rewards, making travel both fun and competitive.',
+      'Social Sharing & Community: Travello integrates social sharing features, allowing users to share achievements and itineraries on social media. The in-app community forum enables travelers to connect, share tips, and plan group activities, fostering a sense of community among users.',
     ],
   },
 ];

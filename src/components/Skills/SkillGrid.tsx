@@ -16,7 +16,10 @@ import {
   SiStreamlit,
   SiSocketdotio,
   SiIota,
-  SiArduino
+  SiArduino,
+  SiAmazondynamodb,
+  SiGitlab,
+  SiFlutter
 } from 'react-icons/si';
 import { Card } from '@/components/ui/card';
 import { FaCode } from 'react-icons/fa'; // from Font Awesome
@@ -67,6 +70,7 @@ const skillCategories: SkillCategory[] = [
       { name: 'MongoDB', icon: SiMongodb },
       { name: 'MySQL', icon: SiMysql },
       { name: 'PostgreSQL', icon: SiPostgresql },
+      {name : "AWS DynamoDB", icon: SiAmazondynamodb},
     ],
   },
   {
@@ -92,6 +96,7 @@ const skillCategories: SkillCategory[] = [
     name: 'Mobile App Development',
     skills: [
       { name: 'React Native', icon: SiReact },
+      { name: 'Flutter', icon: SiFlutter },
     ],
   },
   {
@@ -99,6 +104,7 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: 'Git', icon: SiGit },
       { name: 'GitHub', icon: SiGithub },
+      { name: 'GitLab', icon: SiGitlab },
       { name: 'VS Code', icon: FaCode },
       { name: 'Figma', icon: SiFigma },
       { name: 'Postman', icon: SiPostman },

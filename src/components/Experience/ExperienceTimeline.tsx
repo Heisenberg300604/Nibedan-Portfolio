@@ -38,6 +38,32 @@ const experiences: ExperienceItem[] = [
     ],
     tags: ['React', 'Responsive Design', 'GitHub', 'Open Source', 'Figma'],
   },
+  {
+    id: 3,
+    title: 'SWE Intern ',
+    company: 'Mappls MapMyIndia',
+    location: 'Remote Hybrid',
+    period: 'June 2025 - September 2025',
+    description: [
+      'Worked on the Sanskriti app, identifying and fixing critical bugs and crashes to improve app stability and user experience.',
+      'Conducted comprehensive AP testing to ensure app performance across different Android versions and device configurations.',
+      'Collaborated with the development team to debug and resolve issues in the existing codebase, enhancing overall app reliability.',
+    ],
+    tags: ['React Native', 'Authentication', 'GitHub', 'Git', 'Figma'],
+  },
+  {
+    id: 4,
+    title: 'Full Stack Developer Intern',
+    company: 'NoBrokerage.com',
+    location: 'Remote ',
+    period: 'July 2025 - Present',
+    description: [
+      'Developed a complete mobile application from scratch using React Native, TypeScript, and NativeWind based on Figma designs.',
+      'Translated complex UI/UX designs into fully functional mobile components, ensuring pixel-perfect implementation and responsive design.',
+      'Built and integrated backend APIs using PHP and MySQL to support property listing, user authentication, and data management features.',
+    ],
+    tags: ['React Native', 'PHP', 'GitHub', 'Git', 'Figma', 'HTML', 'CSS', 'JavaScript', 'FileZilla' , 'TypeScript' , 'NativeWind' ],
+  },
 ];
 
 const ExperienceTimeline = () => {
