@@ -58,7 +58,7 @@ const HeroSection = () => {
                 Nibedan Pati
               </h1>
               <p className="text-xl md:text-2xl font-medium text-foreground/80 mt-2">
-                Full Stack Web Developer & BTech Student
+                Full Stack Developer | SIH Grand Finalist
               </p>
             </motion.div>
             
@@ -68,9 +68,8 @@ const HeroSection = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              I'm a passionate web developer with expertise in Web Development, 
-              specializing in building seamless and intuitive web applications. 
-              Currently expanding my skills with Java, IOT and Gen AI.
+              5x Hackathon Winner specializing in Web Development, Mobile Development & DevOps. 
+              Building scalable applications with modern technologies like React, Next.js, React Native & AWS.
             </motion.p>
             
             <motion.div 
@@ -119,7 +118,7 @@ const HeroSection = () => {
               transition={{ delay: 0.7, duration: 0.5 }}
             >
               <div className="parallax glass-card p-6 absolute top-0 right-0 w-64 h-40 md:w-80 md:h-48 flex flex-col justify-center items-center" data-speed="1.5">
-                <div className="text-5xl font-bold text-primary mb-2">4x</div>
+                <div className="text-5xl font-bold text-primary mb-2">5x</div>
                 <div className="text-sm text-foreground/90 text-center">Hackathon Winner</div>
               </div>
               <div className="parallax glass-card p-6 absolute top-32 md:top-40 right-20 md:right-40 w-64 h-40 md:w-80 md:h-48 flex flex-col justify-center items-center" data-speed="1">

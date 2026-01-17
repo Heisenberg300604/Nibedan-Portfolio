@@ -8,6 +8,8 @@ import SignalX from "@/public/images/SignalX.png"
 import recap from "@/public/images/recap.png"
 import athleto from "@/public/images/athleto.png"
 import travello from "@/public/images/Travello.png"
+import echochat from "@/public/images/echochat.png"
+import zapurl from "@/public/images/zapurl.png"
 
 const projectImages = {
   techhive: techHive,
@@ -17,6 +19,8 @@ const projectImages = {
   recap: recap,
   athleto: athleto,
   travello: travello,
+  echochat: echochat,
+  zapurl: zapurl,
 };
 
 const projects: Project[] = [
@@ -39,7 +43,7 @@ const projects: Project[] = [
     id: 2,
     title: 'Recap',
     description: 'Your smart companion for smarter learning',
-    tags: ['React', 'ShadCN Ui', 'Firebase', 'TailwindCSS', 'Vercel','AssemblyAI','Tesseract.js','FireStore','GoogleOauth'],
+    tags: ['React', 'ShadCN Ui', 'Firebase', 'TailwindCSS', 'Vercel', 'AssemblyAI', 'Tesseract.js', 'FireStore', 'GoogleOauth'],
     github: 'https://github.com/Heisenberg300604/Recap',
     demo: 'https://recap-5ajg.vercel.app/',
     image: projectImages.recap,
@@ -68,21 +72,23 @@ const projects: Project[] = [
       'Data export in CSV/PDF formats',
     ],
   },
-  // {
-  //   id: 4,
-  //   title: 'URL Shortening Service',
-  //   description: 'A responsive expense tracking platform with React, TypeScript, and Tailwind CSS.',
-  //   tags: ['MERN', 'TypeScript', 'Tailwind CSS', 'Shadcn', 'JWT'],
-  //   github: 'https://github.com/Heisenberg300604/BudgetMap',
-  //   demo: 'https://budget-map-new.vercel.app/',
-  //   image: projectImages.budgetmap,
-  //   features: [
-  //     'Dynamic dashboard for expense categorization',
-  //     'Secure backend using Node.js and JWT authentication',
-  //     'Multi-currency support with live conversion rates',
-  //     'Data export in CSV/PDF formats',
-  //   ],
-  // },
+  {
+    id: 4,
+    title: 'Zap-URL: URL Shortening Service',
+    description: 'A scalable URL shortening service built to learn and implement system design concepts. Features Redis caching, analytics, and deployed on AWS EC2 with Nginx reverse proxy.',
+    tags: ['React', 'TypeScript', 'AWS EC2', 'DynamoDB', 'Redis', 'Docker', 'Nginx', 'Express', 'PM2'],
+    github: 'https://github.com/Heisenberg300604/Zap-Url',
+    demo: 'https://zap-url-five.vercel.app',
+    image: projectImages.zapurl,
+    features: [
+      'System design implementation with scalability in mind',
+      'Redis caching for fast URL redirection',
+      'URL analytics and click tracking',
+      'AWS EC2 deployment with Nginx reverse proxy',
+      'Docker containerization for consistent deployment',
+      'Winston logging for production monitoring',
+    ],
+  },
   {
     id: 5,
     title: 'Flox : Social Media Platform',
@@ -101,9 +107,24 @@ const projects: Project[] = [
   },
   {
     id: 6,
+    title: 'create-expo-starter: NPM Package',
+    description: 'CLI tool that generates fully-configured Expo React Native applications. Published on NPM with 5 stars! Includes TypeScript, Expo Router, NativeWind, Zustand, and Axios out of the box.',
+    tags: ['JavaScript', 'NPM', 'CLI', 'Expo', 'React Native', 'TypeScript', 'Zustand'],
+    github: 'https://github.com/Heisenberg300604/create-expo-starter',
+    features: [
+      'Published NPM package: npx create-expo-starter',
+      'Pre-configured with TypeScript and Expo Router',
+      'NativeWind (TailwindCSS for React Native) setup',
+      'Zustand for state management',
+      'Axios for API calls with interceptors',
+      'Starter components for Login, Signup, and Home screens',
+    ],
+  },
+  {
+    id: 7,
     title: 'Signal-X: AI-powered traffic management system',
     description: 'Signal-X is an AI-powered traffic management system using advanced computer vision, edge computing, and geospatial intelligence. With real-time sensor fusion, machine learning algorithms, and adaptive signal control, it enables dynamic congestion management and emergency vehicle prioritization.',
-    tags: ['React', 'Tailwind CSS', 'Arduino', 'Flask', 'MongoDB', 'YOLOv8','MapMyIndia API', 'Streamlit',"React-Native-Expo"],
+    tags: ['React', 'Tailwind CSS', 'Arduino', 'Flask', 'MongoDB', 'YOLOv8', 'MapMyIndia API', 'Streamlit', "React-Native-Expo"],
     github: 'https://github.com/Heisenberg300604/Signal-X/tree/main',
     demo: 'https://signal-x-zkh5.vercel.app/',
     image: projectImages.signalx,
@@ -116,10 +137,26 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 7,
+    id: 8,
+    title: 'EchoChat: Real-time Communication',
+    description: 'A real-time chatting and video calling application for 1-to-1 communication. Built with WebRTC for peer-to-peer video calls and Socket.io for real-time messaging.',
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Socket.io', 'WebRTC', 'Shadcn-UI', 'Neon'],
+    github: 'https://github.com/Heisenberg300604/EchoChat',
+    demo: 'https://echo-chat-iota.vercel.app',
+    image: projectImages.echochat,
+    features: [
+      'Real-time 1-to-1 video calling with WebRTC',
+      'Instant messaging with Socket.io',
+      'User authentication and session management',
+      'PostgreSQL database with Prisma ORM',
+      'Modern UI with Shadcn components',
+    ],
+  },
+  {
+    id: 9,
     title: 'Athleto: Empowering Underprivileged Athletes',
     description: 'Athleto is a virtual platform designed to support underprivileged athletes in India by providing them with the resources, training, and financial backing they need to excel in their respective sports.',
-    tags: ['NextJS', 'Tailwind CSS', 'Typescript', 'Supabase', 'Nodejs', 'Deepseek AI','Vercel', 'Razorpay',"Docker"],
+    tags: ['NextJS', 'Tailwind CSS', 'Typescript', 'Supabase', 'Nodejs', 'Deepseek AI', 'Vercel', 'Razorpay', "Docker"],
     github: 'https://github.com/Heisenberg300604/Athleto',
     demo: 'https://athleto-project.vercel.app/',
     image: projectImages.athleto,
@@ -132,10 +169,23 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 8,
+    id: 10,
+    title: 'CodeSensei: Chrome Extension',
+    description: 'A developer productivity Chrome extension to enhance your coding workflow. Built with JavaScript and Chrome Extension APIs.',
+    tags: ['JavaScript', 'Chrome Extension', 'HTML', 'CSS', 'Browser APIs'],
+    github: 'https://github.com/Heisenberg300604/codesensei-extension',
+    features: [
+      'Developer productivity tool',
+      'Chrome Extension APIs integration',
+      'Lightweight and fast',
+      'Easy to install and use',
+    ],
+  },
+  {
+    id: 11,
     title: 'Travello',
     description: 'Tourism often lacks engagement and interactive experiences, leading to missed opportunities for travelers to discover unique local attractions and fully immerse themselves in local culture. Design a sophisticated gamified tourism application that motivates users to thoroughly explore their destination by earning points through uncovering hidden attractions and completing challenges and quests such as uploading photos taken from specific angles to match reference images. The application should also feature leaderboards, rewards, and integrated social sharing capabilities',
-    tags: ['React', 'Tailwind CSS', 'Javascript', 'MongoDB', 'Nodejs', 'Bcrypt','Vercel', 'Mapbox',"AWS", "OAuth"],
+    tags: ['React', 'Tailwind CSS', 'Javascript', 'MongoDB', 'Nodejs', 'Bcrypt', 'Vercel', 'Mapbox', "AWS", "OAuth"],
     github: 'https://github.com/Heisenberg300604/Travello-Final',
     demo: 'https://travello-project.vercel.app/',
     image: projectImages.travello,

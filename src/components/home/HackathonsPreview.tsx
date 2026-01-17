@@ -10,8 +10,8 @@ const HackathonsPreview = () => {
   return (
     <section className="py-20 px-6">
       <div className="container mx-auto">
-        <SectionHeading 
-          title="Hackathon Achievements" 
+        <SectionHeading
+          title="Hackathon Achievements"
           subtitle="My journey through competitions and coding challenges"
         />
 
@@ -24,12 +24,13 @@ const HackathonsPreview = () => {
           <div className="flex justify-center mb-6">
             <Trophy className="h-14 w-14 text-primary" />
           </div>
-          <h3 className="text-2xl font-bold mb-4">4x Hackathon Winner</h3>
+          <h3 className="text-2xl font-bold mb-2">5x Hackathon Winner</h3>
+          <p className="text-primary font-semibold mb-4">Smart India Hackathon Grand Finalist 🏆</p>
           <p className="text-muted-foreground mb-6">
-            I've participated in multiple hackathons, collaborating with talented teams 
-            to create innovative solutions under tight deadlines. From AI-powered applications 
-            to creative web solutions, these experiences have sharpened my problem-solving 
-            skills and ability to work efficiently under pressure.
+            Including being a Grand Finalist at Smart India Hackathon, India's largest hackathon!
+            I've collaborated with talented teams to create innovative solutions like ComminuSense
+            for NMDC, AI-powered traffic management, and gamified education platforms.
+            These experiences have sharpened my problem-solving skills and ability to deliver under pressure.
           </p>
           <Button asChild>
             <Link href="/hackathons">

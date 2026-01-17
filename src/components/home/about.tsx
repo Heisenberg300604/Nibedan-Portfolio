@@ -20,9 +20,9 @@ const About = () => {
   };
 
   const stats = [
-    { value: '4+', label: 'Hackathons Won' },
-    { value: '1+', label: 'Years Coding' },
-    { value: '10+', label: 'Projects Completed' },
+    { value: '5x', label: 'Hackathons Won' },
+    { value: '2+', label: 'Years Coding' },
+    { value: '15+', label: 'Projects Completed' },
   ];
 
   return (
@@ -77,19 +77,19 @@ const About = () => {
               variants={fadeInVariants}
             >
               <h3 className="text-2xl font-semibold text-foreground">
-                I'm a passionate <span className="text-primary">Full Stack Web Developer</span>
+                I'm a passionate <span className="text-primary">Full Stack Developer</span> & <span className="text-primary">SIH Grand Finalist</span>
               </h3>
 
               <p className="text-muted-foreground">
-                I am a passionate web developer with knowledge in Modern Web Development. I specialize in building seamless and intuitive web applications, transforming ideas into functional and visually appealing realities.
+                I specialize in <strong>Web Development, Mobile Development, and DevOps</strong>, building scalable and intuitive applications. With expertise in React, Next.js, React Native, and AWS, I transform ideas into functional, visually appealing, and production-ready solutions.
               </p>
 
               <p className="text-muted-foreground">
-                Currently, I am expanding my skill set by learning Java and exploring various aspects of development such as IOT , Generative AI and Data Structures Algorithms . As an undergraduate BTech student in Information Technology at BPIT, I'm constantly seeking to grow my technical abilities.
+                As a <strong>5-time hackathon winner</strong> and <strong>Smart India Hackathon Grand Finalist</strong> (one of India's biggest hackathons), I've proven my ability to deliver innovative solutions under pressure. Currently pursuing BTech in Information Technology at BPIT, I'm constantly expanding my skills in cloud computing, system design, and modern development practices.
               </p>
 
               <p className="text-muted-foreground">
-                I'm especially proud of my achievements in hackathons, having won 4 competitions, and my contributions as a WebDeveloper at GeekRoom and as a contributor to Open Source Repositories.
+                Beyond coding, I share my knowledge on my <strong>YouTube channel with 200+ subscribers</strong>, and contribute as a Web Developer at GeekRoom and to Open Source Repositories. I've also built my own NPM package and Chrome extension!
               </p>
             </motion.div>
 

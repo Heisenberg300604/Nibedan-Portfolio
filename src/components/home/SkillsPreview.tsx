@@ -5,45 +5,45 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import SectionHeading from '../Common/SectionHeading';
-import { 
-  SiReact, SiNextdotjs, SiJavascript, SiHtml5, SiCss3, SiTailwindcss,
-  SiRedux, SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiFirebase,
-  SiGit, SiGithub, SiFigma, SiPostman, SiJira,SiAppwrite
+import {
+  SiReact, SiNextdotjs, SiJavascript, SiTypescript, SiTailwindcss,
+  SiNodedotjs, SiMongodb, SiPostgresql, SiFirebase,
+  SiDocker, SiAmazonwebservices, SiGithubactions, SiNginx,
+  SiFlutter
 } from 'react-icons/si';
-import { FaCode } from 'react-icons/fa'; // from Font Awesome
 
 const skillCategories = [
   {
-    name: 'Frontend',
+    name: 'Frontend & Mobile',
     skills: [
       { name: 'React', icon: SiReact },
       { name: 'NextJS', icon: SiNextdotjs },
-      { name: 'JavaScript', icon: SiJavascript },
-      { name: 'HTML/CSS', icon: SiHtml5 },
+      { name: 'TypeScript', icon: SiTypescript },
+      { name: 'React Native', icon: SiReact },
       { name: 'TailwindCSS', icon: SiTailwindcss },
-      { name: 'Redux', icon: SiRedux },
+      { name: 'Flutter', icon: SiFlutter },
     ],
   },
   {
-    name: 'Backend',
+    name: 'Backend & Database',
     skills: [
       { name: 'Node.js', icon: SiNodedotjs },
-      { name: 'Express', icon: SiExpress },
       { name: 'MongoDB', icon: SiMongodb },
-      { name: 'MySQL', icon: SiMysql },
+      { name: 'PostgreSQL', icon: SiPostgresql },
       { name: 'Firebase', icon: SiFirebase },
-      { name: 'Appwrite', icon: SiAppwrite },
+      { name: 'JavaScript', icon: SiJavascript },
+      { name: 'TypeScript', icon: SiTypescript },
     ],
   },
   {
-    name: 'Tools',
+    name: 'DevOps & Other Skills',
     skills: [
-      { name: 'Git', icon: SiGit },
-      { name: 'GitHub', icon: SiGithub },
-      { name: 'VS Code', icon: FaCode },
-      { name: 'Figma', icon: SiFigma },
-      { name: 'Postman', icon: SiPostman },
-      { name: 'Jira', icon: SiJira },
+      { name: 'AWS', icon: SiAmazonwebservices },
+      { name: 'Docker', icon: SiDocker },
+      { name: 'Nginx', icon: SiNginx },
+      { name: 'GitHub Actions', icon: SiGithubactions },
+      { name: 'React Native', icon: SiReact },
+      { name: 'Flutter', icon: SiFlutter },
     ],
   },
 ];
@@ -52,8 +52,8 @@ const SkillsPreview = () => {
   return (
     <section className="py-20 px-6 bg-secondary/20">
       <div className="container mx-auto">
-        <SectionHeading 
-          title="My Skills" 
+        <SectionHeading
+          title="My Skills"
           subtitle="Technologies and tools I've worked with"
         />
 
@@ -70,7 +70,7 @@ const SkillsPreview = () => {
               <h3 className="text-xl font-semibold mb-4 text-primary">{category.name}</h3>
               <div className="grid grid-cols-3 gap-4">
                 {category.skills.map((skill) => (
-                  <div 
+                  <div
                     key={skill.name}
                     className="flex flex-col items-center p-2 rounded-lg transition-all duration-300 hover:bg-primary/10 group"
                   >

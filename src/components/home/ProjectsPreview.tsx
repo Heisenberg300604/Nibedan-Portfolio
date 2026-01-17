@@ -39,8 +39,8 @@ const ProjectsPreview = () => {
   return (
     <section className="py-20 px-6">
       <div className="container mx-auto">
-        <SectionHeading 
-          title="Featured Projects" 
+        <SectionHeading
+          title="Featured Projects"
           subtitle="Check out some of my recent work"
         />
 
@@ -57,19 +57,19 @@ const ProjectsPreview = () => {
                 {project.image && (
                   <div className="aspect-video w-full overflow-hidden">
                     <Image
-                      src={project.image} 
-                      alt={project.title} 
+                      src={project.image}
+                      alt={project.title}
                       className="w-full h-full object-cover transition-all duration-500 hover:scale-105"
                       width={800}
                       height={450}
                     />
                   </div>
                 )}
-                
+
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2 text-foreground">{project.title}</h3>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag) => (
                       <span
@@ -80,11 +80,11 @@ const ProjectsPreview = () => {
                       </span>
                     ))}
                   </div>
-                  
+
                   <div className="flex items-center space-x-4">
-                    <a 
-                      href={project.github} 
-                      target="_blank" 
+                    <a
+                      href={project.github}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary transition-colors flex items-center"
                     >
@@ -92,9 +92,9 @@ const ProjectsPreview = () => {
                       <span className="text-sm">GitHub</span>
                     </a>
                     {project.demo && (
-                      <a 
-                        href={project.demo} 
-                        target="_blank" 
+                      <a
+                        href={project.demo}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-primary transition-colors flex items-center"
                       >

@@ -19,10 +19,59 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Nibedan's Portfolio",
-  description: "My Personal Porttfolio Website",
+  title: "Nibedan Pati | Full Stack Developer & SIH Grand Finalist",
+  description: "Portfolio of Nibedan Pati - 5x Hackathon Winner, Smart India Hackathon Grand Finalist, Full Stack Developer specializing in Web Development, Mobile Development, and DevOps. Expert in React, Next.js, React Native & AWS. BTech IT student at BPIT.",
+  keywords: [
+    "Nibedan Pati",
+    "Full Stack Developer",
+    "SIH Grand Finalist",
+    "Smart India Hackathon",
+    "Hackathon Winner",
+    "React Developer",
+    "Next.js Developer",
+    "MERN Stack",
+    "Mobile Developer",
+    "React Native",
+    "DevOps",
+    "AWS",
+    "Web Developer India",
+    "BTech Developer",
+    "BPIT",
+    "Software Engineer"
+  ],
+  authors: [{ name: "Nibedan Pati", url: "https://github.com/Heisenberg300604" }],
+  creator: "Nibedan Pati",
+  publisher: "Nibedan Pati",
+  openGraph: {
+    title: "Nibedan Pati | Full Stack Developer & SIH Grand Finalist",
+    description: "5x Hackathon Winner | Smart India Hackathon Grand Finalist | Full Stack Developer specializing in Web, Mobile & DevOps",
+    url: "https://nibedan-portfolio.vercel.app",
+    siteName: "Nibedan Pati Portfolio",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nibedan Pati | Full Stack Developer & SIH Grand Finalist",
+    description: "5x Hackathon Winner | SIH Grand Finalist | Full Stack Developer",
+    creator: "@nibedan",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: "/Nibedan.svg",
+  },
+  verification: {
+    google: "your-google-verification-code",
   },
 };
 
@@ -41,12 +90,12 @@ export default function RootLayout({
       )}>
         <CustomCursor />
         <Toaster position="top-center" richColors />
-          <div className="relative flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-        
+        <div className="relative flex min-h-screen flex-col">
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
+
       </body>
     </html>
   );

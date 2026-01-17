@@ -1,11 +1,11 @@
 "use client"
 import { motion } from 'framer-motion';
-import { 
+import {
   SiHtml5, SiCss3, SiJavascript, SiReact, SiNextdotjs,
   SiRedux, SiTailwindcss, SiBootstrap, SiSass, SiMui,
   SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiFirebase,
   SiGit, SiGithub, SiFigma, SiPostman,
-  SiJira, SiCanva, SiTypescript, SiC, SiWordpress, SiAppwrite,SiFastapi,
+  SiJira, SiCanva, SiTypescript, SiC, SiWordpress, SiAppwrite, SiFastapi,
   SiFlask,
   SiPostgresql,
   SiSupabase,
@@ -19,7 +19,16 @@ import {
   SiArduino,
   SiAmazondynamodb,
   SiGitlab,
-  SiFlutter
+  SiFlutter,
+  SiDocker,
+  SiNginx,
+  SiRedis,
+  SiAmazonwebservices,
+  SiAmazonec2,
+  SiAmazons3,
+  SiAwslambda,
+  SiKubernetes,
+  SiGithubactions
 } from 'react-icons/si';
 import { Card } from '@/components/ui/card';
 import { FaCode } from 'react-icons/fa'; // from Font Awesome
@@ -70,7 +79,28 @@ const skillCategories: SkillCategory[] = [
       { name: 'MongoDB', icon: SiMongodb },
       { name: 'MySQL', icon: SiMysql },
       { name: 'PostgreSQL', icon: SiPostgresql },
-      {name : "AWS DynamoDB", icon: SiAmazondynamodb},
+      { name: "AWS DynamoDB", icon: SiAmazondynamodb },
+      { name: 'Redis', icon: SiRedis },
+    ],
+  },
+  {
+    name: 'AWS & Cloud',
+    skills: [
+      { name: 'AWS', icon: SiAmazonwebservices },
+      { name: 'AWS EC2', icon: SiAmazonec2 },
+      { name: 'AWS S3', icon: SiAmazons3 },
+      { name: 'AWS Lambda', icon: SiAwslambda },
+      { name: 'AWS DynamoDB', icon: SiAmazondynamodb },
+    ],
+  },
+  {
+    name: 'DevOps',
+    skills: [
+      { name: 'Docker', icon: SiDocker },
+      { name: 'Kubernetes', icon: SiKubernetes },
+      { name: 'Nginx', icon: SiNginx },
+      { name: 'GitHub Actions', icon: SiGithubactions },
+      { name: 'Vercel', icon: SiVercel },
     ],
   },
   {
@@ -117,7 +147,7 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: 'WordPress', icon: SiWordpress },
       { name: 'UI/UX Design', icon: SiFigma },
-      { name : 'Arduino', icon: SiArduino },
+      { name: 'Arduino', icon: SiArduino },
     ],
   },
 ];
@@ -152,11 +182,11 @@ const SkillGrid = () => {
           variants={itemVariants}
         >
           <h3 className="text-xl font-semibold mb-6 text-primary">{category.name}</h3>
-          
+
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
             {category.skills.map((skill) => (
-              <Card 
-                key={skill.name} 
+              <Card
+                key={skill.name}
                 className="flex flex-col items-center justify-center p-3 hover:bg-primary/10 transition-colors group"
               >
                 <skill.icon className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors" />
