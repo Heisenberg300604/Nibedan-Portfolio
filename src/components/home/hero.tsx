@@ -3,38 +3,39 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Github, Linkedin } from 'lucide-react';
+import { FaXTwitter } from "react-icons/fa6";
 import Link from 'next/link';
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   // Parallax effect
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
-      
+
       const { clientX, clientY } = e;
       const { left, top, width, height } = containerRef.current.getBoundingClientRect();
-      
+
       const x = (clientX - left) / width - 0.5;
       const y = (clientY - top) / height - 0.5;
-      
+
       const elements = containerRef.current.querySelectorAll('.parallax');
       elements.forEach((el) => {
         const speed = parseFloat((el as HTMLElement).dataset.speed || '1');
         const rotateX = y * 10 * speed;
         const rotateY = -x * 10 * speed;
-        
+
         (el as HTMLElement).style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
       });
     };
-    
+
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-  
+
   return (
-    <section 
+    <section
       ref={containerRef}
       className="relative h-screen flex flex-col justify-center items-center overflow-hidden py-20 px-6"
     >
@@ -43,7 +44,7 @@ const HeroSection = () => {
         <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[100px]"></div>
         <div className="absolute bottom-1/4 right-1/3 w-[300px] h-[300px] rounded-full bg-primary/20 blur-[80px]"></div>
       </div>
-      
+
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
           {/* Left content - Text */}
@@ -61,18 +62,18 @@ const HeroSection = () => {
                 Full Stack Developer | SIH Grand Finalist
               </p>
             </motion.div>
-            
-            <motion.p 
+
+            <motion.p
               className="text-muted-foreground text-base md:text-lg max-w-xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              5x Hackathon Winner specializing in Web Development, Mobile Development & DevOps. 
+              5x Hackathon Winner specializing in Web Development, Mobile Development & DevOps.
               Building scalable applications with modern technologies like React, Next.js, React Native & AWS.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className="flex flex-wrap items-center gap-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -83,32 +84,40 @@ const HeroSection = () => {
                   Get in touch <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              
+
               <Button variant="outline" size="lg" asChild>
                 <Link href="/projects">View my projects</Link>
               </Button>
-              
+
               <div className="flex items-center gap-4 ml-0 md:ml-4 mt-4 md:mt-0">
-                <a 
-                  href="https://github.com/Heisenberg300604" 
-                  target="_blank" 
+                <a
+                  href="https://github.com/Heisenberg300604"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-foreground/70 hover:text-primary transition-colors"
                 >
                   <Github className="h-6 w-6" />
                 </a>
-                <a 
-                  href="https://www.linkedin.com/in/nibedan-pati-2139b3277" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/nibedan-pati-2139b3277"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-foreground/70 hover:text-primary transition-colors"
                 >
                   <Linkedin className="h-6 w-6" />
                 </a>
+                <a
+                  href="https://x.com/ItsHeisenberg04"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/70 hover:text-primary transition-colors"
+                >
+                  <FaXTwitter className="h-6 w-6" />
+                </a>
               </div>
             </motion.div>
           </div>
-          
+
           {/* Right content - Animated 3D Cards */}
           <div className="lg:col-span-2 relative h-[300px] md:h-[400px]">
             <motion.div
@@ -133,7 +142,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
         <motion.div
@@ -142,19 +151,19 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.5 }}
         >
-          <motion.div 
+          <motion.div
             className="w-1.5 h-1.5 bg-primary rounded-full"
-            animate={{ 
+            animate={{
               y: [0, 12, 0],
             }}
-            transition={{ 
+            transition={{
               duration: 1.5,
               repeat: Infinity,
               repeatType: "loop",
             }}
           />
         </motion.div>
-        <motion.p 
+        <motion.p
           className="text-xs text-foreground/40 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
