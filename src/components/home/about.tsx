@@ -4,7 +4,7 @@ import SectionHeading from '../Common/SectionHeading';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import nibedanPic from '@/public/nibedan.JPG';
+import nibedanPic from '@/public/nibedan.png';
 
 const About = () => {
   const fadeInVariants = {
