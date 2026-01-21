@@ -6,6 +6,7 @@ import Footer from "@/components/layouts/footer";
 import CustomCursor from "@/components/Common/CustomCursor";
 import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -95,7 +96,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
-
+      <Analytics />
       </body>
     </html>
   );
