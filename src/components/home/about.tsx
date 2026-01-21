@@ -4,7 +4,7 @@ import SectionHeading from '../Common/SectionHeading';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import nibedanPic from '@/public/nibedan_pic.jpg';
+import nibedanPic from '@/public/nibedan.JPG';
 
 const About = () => {
   const fadeInVariants = {
@@ -54,12 +54,12 @@ const About = () => {
               </div>
             </div>
 
-            <div className="absolute -bottom-8 -right-8 p-6 glass-card">
+            <div className="absolute -bottom-8 -right-8 p-6 rounded-xl bg-card/95 backdrop-blur-md border-2 border-primary/30 shadow-2xl">
               <div className="flex gap-6">
                 {stats.map((stat, index) => (
                   <div key={index} className="text-center">
-                    <div className="text-3xl font-bold text-primary">{stat.value}</div>
-                    <div className="text-xs text-foreground/70">{stat.label}</div>
+                    <div className="text-3xl font-bold text-primary drop-shadow-lg">{stat.value}</div>
+                    <div className="text-xs text-foreground font-medium">{stat.label}</div>
                   </div>
                 ))}
               </div>
